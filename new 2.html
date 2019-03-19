@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="js/bamboo.min.js"></script>
+<link rel="stylesheet" href="css/bamboo.min.css">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=PT+Serif" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+
+<script src="js/script.js"></script>
+
+</head>
+
+<style>
+
+/* Slider */
+
+.slick-slide {
+    margin: 0px 20px;
+}
+
+.slick-slide img {
+    width: 100%;
+}
+
+.slick-slider
+{
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+            user-select: none;
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    -ms-touch-action: pan-y;
+        touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.slick-list
+{
+    position: relative;
+    display: block;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+.slick-list:focus
+{
+    outline: none;
+}
+.slick-list.dragging
+{
+    cursor: pointer;
+    cursor: hand;
+}
+
+.slick-slider .slick-track,
+.slick-slider .slick-list
+{
+    -webkit-transform: translate3d(0, 0, 0);
+       -moz-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+         -o-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+}
+
+.slick-track
+{
+    position: relative;
+    top: 0;
+    left: 0;
+    display: block;
+}
+.slick-track:before,
+.slick-track:after
+{
+    display: table;
+    content: '';
+}
+.slick-track:after
+{
+    clear: both;
+}
+.slick-loading .slick-track
+{
+    visibility: hidden;
+}
+
+.slick-slide
+{
+    display: none;
+    float: left;
+    height: 100%;
+    min-height: 1px;
+}
+[dir='rtl'] .slick-slide
+{
+    float: right;
+}
+.slick-slide img
+{
+    display: block;
+}
+.slick-slide.slick-loading img
+{
+    display: none;
+}
+.slick-slide.dragging img
+{
+    pointer-events: none;
+}
+.slick-initialized .slick-slide
+{
+    display: block;
+}
+.slick-loading .slick-slide
+{
+    visibility: hidden;
+}
+.slick-vertical .slick-slide
+{
+    display: block;
+    height: auto;
+    border: 1px solid transparent;
+}
+.slick-arrow.slick-hidden {
+    display: none;
+}
+</style>
+<body>
+<!-- start navigation -->
+		<div id="nav" class="navbar navbar-fixed-top navbar-default" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="icon icon-bar"></span>
+						<span class="icon icon-bar"></span>
+						<span class="icon icon-bar"></span>
+					</button>
+					<a href="#" class="navbar-brand"><img src="images/logo.jpg" class="img-responsive" alt="logo"></a>
+				</div>
+				<div class="collapse navbar-collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li onclick="home()"><a href="#home" class="smoothScroll">HOME</a></li>
+						<li onclick="service()"><a href="#service" class="smoothScroll">SERVICE</a></li>
+						<li onclick="about()"><a href="#about" class="smoothScroll">ABOUT</a></li>
+						<li onclick="portfolio()"><a href="#portfolio" class="smoothScroll">PORTFOLIO</a></li>
+						<li onclick="contact()"><a href="#contact" class="smoothScroll">CONTACT</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="tele" onclick="tele()">
+				<img src="images/tele.png">
+			</div>
+			<p id="telecon" class="telecon hid">+9603318712</p>
+			<a href="https://www.google.com/maps/place/Infotech+Maldives+Pte+Ltd/@4.1752697,73.5060448,16z/data=!4m5!3m4!1s0x3b3f7faca65925e5:0x448bf365253e37a2!8m2!3d4.1764788!4d73.5088342" class="loc">
+				<img src="images/location.png">
+			</a>
+		</div>
+		<div id="all" class="all" onclick="cover()">
+		</div>
+		 <div id="form" class="form hid">
+				<div class="topone">
+				<h2>Send Us a Message</h2>
+				</div>
+				<form action="mail.php" method="post">
+					<input type="text" id="name" name="name" placeholder="*Name">
+					<input type="text" id="mail" name="email" placeholder="*Email">
+					<input type="text" id="phone" name="phone" placeholder="*Phone">
+					<input type="textarea" id="message" name="message" placeholder="*Message">
+					<input type="submit" value="Submit" >
+				</form>
+			</div>
+			<div id="mail" class="mail" onclick="mailbtn()">
+			</div>
+		<!-- end navigation -->
+<section id="stop" class="stop">
+<div class="templatemo_headerimage">
+					<div class="flexslider">
+						<ul class="slides">
+								<div class="slider-caption">
+										<div class="templatemo_homewrapper">
+											<h1 class="wow fadeInDown" data-wow-delay="2000">Welcome to</h1>
+											<h2 class="wow fadeInDown" data-wow-delay="2000">
+												<span>Infotech Maldives</span>
+											</h2>
+											<a onclick="portfolio()" class="smoothScroll btn btn-default wow fadeInDown" data-wow-delay="2000">Our Work</a>	
+										</div>
+									</div>
+						</ul>
+					</div>
+				</div>	
+</section>
+		<!-- start home -->
+		<section id="home">
+				<div class="templatemo_headerimage">
+					<div class="flexslider">
+					
+					</div>
+				</div>
+		</section>
+		<!-- end home -->
+		<div class="this">
+	<div class="container">
+  <h2>Supported by</h2>
+   <section class="customer-logos slider">
+      <div class="slide"><img src="images/dell.png"></div>
+      <div class="slide"><img src="images/acer.jpg"></div>
+      <div class="slide"><img src="images/apple.png"></div>
+      <div class="slide"><img src="images/asus.png"></div>
+      <div class="slide canon" ><img src="images/canon.jpg"></div>
+      <div class="slide"><img src="images/hp.jpg"></div>
+      <div class="slide"><img src="images/microsoft.jpg"></div>
+      <div class="slide"><img src="images/samsung.png"></div>
+   </section>
+</div>
+</div>
+		<!-- start divider -->
+		<div id="divider">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-1 col-sm-1"></div>
+					<div class="col-md-8 col-sm-8">
+						<h2 class="wow bounce">We provide <strong>IT solutions</strong></h2>
+						<h3 class="wow fadeIn" data-wow-delay="0.6s">Professional Technicians &amp; Talented Developers</h3>
+						<p class="wow fadeInUp" data-wow-delay="0.9s">Infotech provides prompt and professional IT Support and services.  Whatever your needs are, we have a team of professionals who can study and analyse your requirement and offer the best solution possible, whether it’s a small project or a large scale project.</p>
+						<p class="wow fadeInUp" data-wow-delay="0.9s">During the first few years of its inception, the company focused on software development and providing customized software solutions to private businesses and government institutions in the country.</p>
+					<p class="wow fadeInUp" data-wow-delay="0.9s">As the IT industry in the Maldives picked up pace, the importance of providing total solutions grew. In keeping with the pulse of the emerging market, the company ventured into sourcing hardware and other peripherals. Today infotech has diversified into many market segments and is a key player in providing
+solutions in these segments.</p>
+					</div>
+					<div class="col-md-2 col-sm-2"></div>
+				</div>
+			</div>
+		</div>
+		<!-- end divider -->
+<!-- start service -->
+		<div id="service">
+		<h1 class="serviceH">Our Services</h1>
+		<h4 class="wow bounce">
+			We provide
+		</h4>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4 col-sm-4">
+						<div class="media">
+							<div class="media-object media-left wow fadeIn" data-wow-delay="0.1s">
+								<img src="icon/tele.png">
+							</div>
+							<div class="media-body wow fadeIn">
+								<h3 class="media-heading">Telephony Solutions</h3>
+								<p>SIEMENS PABX systems – ranging from 8 to 5000 extensions.<br>IP voice telephony solutions.<br>Voice Logging solutions.</p>
+</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-4">
+						<div class="media">
+							<div class="media-object media-left wow fadeIn" data-wow-delay="0.3s">
+								<img src="icon/BoardRoom.png">
+							</div>
+							<div class="media-body wow fadeIn">
+								<h3 class="media-heading">Board Room solutions</h3>
+								<p>POLYCOM Voice Conferencing solutions.<br>POLYCOM Video Conferencing Solutions.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-4">
+						<div class="media">
+							<div class="media-object media-left wow fadeIn" data-wow-delay="0.4s">
+								<img src="icon/office.png">
+							</div>
+							<div class="media-body wow fadeIn" data-wow-delay="0.3s">
+								<h3 class="media-heading">Office automation </h3>
+								<p>Office automation using advanced software.<br>Expertise in integration with third party apps using API.</p>
+							</div>
+						</div>
+					</div>
+					</div>
+					<div class="container">
+					<div class="col-md-4 col-sm-4">
+						<div class="media">
+							<div class="media-object media-left wow fadeIn" data-wow-delay="0.9s">
+								<img src="icon/network.png">
+							</div>
+							<div class="media-body wow fadeIn" data-wow-delay="0.6s">
+								<h3 class="media-heading">Networking solutions</h3>
+								<p>R&M CAT5e, CAT6 Structured cabling solutions.<br>Optical fiber cabling solutions.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-4">
+						<div class="media">
+							<div class="media-object media-left wow fadeIn" data-wow-delay="0.4s">
+								<img src="icon/wan.png">
+							</div>
+							<div class="media-body wow fadeIn" data-wow-delay="0.3s">
+								<h3 class="media-heading">Wide Area Networking</h3>
+								<p>LAN extenders, network bridges.<br>xDSL solutions.<br>CISCO Switching, Routing and VLAN solutions.<br>Network Security and Vulnerability Solutions.<br>Wireless LAN and WAN solutions (Wi-Fi or Wi-Max).</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-4">
+						<div class="media">
+							<div class="media-object media-left wow fadeIn" data-wow-delay="0.8s">
+								<img src="icon/Building.png">
+							</div>
+							<div class="media-body wow fadeIn" data-wow-delay="0.6s">
+								<h3 class="media-heading">Building Automation Solution</h3>
+								<p>Analog and Digital Cameras.<br>Analog and Digital Video Recording.<br>Cabling.<br>Access control.<br>IP cameras and network monitoring.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+									<div class="container">
+					<div class="col-md-4 col-sm-4">
+						<div class="media">
+							<div class="media-object media-left wow fadeIn" data-wow-delay="0.9s">
+								<img src="icon/cat.png">
+							</div>
+							<div class="media-body wow fadeIn" data-wow-delay="0.6s">
+								<h3 class="media-heading">CATV</h3>
+								<p>Analog CATV solutions.<br>Digital CATV solutions.<br>IPTV solutions.<br>VoD solutions.<br>PayTV solutions.<br>Internet on TV solutions for hospitality industry</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-4">
+						<div class="media">
+							<div class="media-object media-left wow fadeIn" data-wow-delay="0.6s">
+								<img src="icon/toa.png">
+							</div>
+							<div class="media-body wow fadeIn" data-wow-delay="0.3s">
+								<h3 class="media-heading">Public Address Systems</h3>
+								<p>TOA </p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- end service -->
+		<!-- start about -->
+		<div id="about">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-sm-8" data-wow-delay="0.9s">
+						<h3 class="wow bounce">About Infotech</h3>
+						<h4 class="wow bounce">Valuable, Reliable and Hassle free</h4>
+						<p class="wow fadeIn" data-wow-delay="0.6s">Infotech specializes in working with many technologies and integration with other technologies and systems are a key capability of our company.   We have earned a reputation for systems design and developing user friendly software. Today many reputed businesses in Maldives rely on our Consultancy, solutions and support for their IT investments.</p>
+						<p class="wow fadeIn" data-wow-delay="0.6s">We have evolved our services from basic networking services to provide enterprise grade solutions. </p>
+						<p class="wow fadeIn" data-wow-delay="0.6s">Over the past two decades, the company has offered a wide range of pioneering products, ground breaking services and has continued to invest in its strengths to provide effective, efficient and reliable solutions to meet the demand of the dynamic IT and info-comms market in the Maldives.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- end about -->
+
+		<!-- start portfolio -->
+		<div id="portfolio">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 text-center">
+						<h2 class="wow bounce">We Have Worked At</h2>
+							<div class="iso-section wow fadeIn" data-wow-delay="0.6s">
+               				 	<div class="iso-box-section">
+               				 		<div class="iso-box-wrapper col4-iso-box">
+
+               				 			<div class="iso-box graphic photoshop wallpaper col-md-4 col-sm-6 col-xs-12">
+               				 				<div class="portfolio-thumb">
+               				 					<img src="images/Cyprea.jpg" class="fluid-img" alt="portfolio img">
+               				 						<div class="portfolio-overlay">
+               				 							<h4>Cyprea New Building</h4>
+               				 						</div>
+               				 				</div>
+               				 			</div>
+
+               				 			<div class="iso-box graphic wallpaper col-md-4 col-sm-6 col-xs-12">
+               				 				<div class="portfolio-thumb">
+               				 					<img src="images/Velaanaage.jpg" class="fluid-img" alt="portfolio img">
+               				 						<div class="portfolio-overlay">
+               				 							<h4>Velanage Building</h4>
+               				 						</div>
+               				 				</div>
+               				 			</div>
+
+               				 			<div class="iso-box wallpaper col-md-4 col-sm-6 col-xs-12">
+               				 				<div class="portfolio-thumb">
+               				 					<img src="images/thuniye.png" class="fluid-img" alt="portfolio img">
+               				 						<div class="portfolio-overlay">
+               				 							<h4>Thuniya Building</h4>
+               				 						</div>
+               				 				</div>
+               				 			</div>
+
+               				 			<div class="iso-box graphic col-md-4 col-sm-6 col-xs-12">
+               				 				<div class="portfolio-thumb">
+               				 					<img src="images/adk.png" class="fluid-img" alt="portfolio img">
+               				 						<div class="portfolio-overlay">
+               				 							<h4>ADK Hospital</h4>
+               				 						</div>
+               				 				</div>
+               				 			</div>
+
+               				 			<div class="iso-box graphic photoshop col-md-4 col-sm-6 col-xs-12">
+               				 				<div class="portfolio-thumb">
+               				 					<img src="images/airport.jpg" class="fluid-img" alt="portfolio img">
+               				 						<div class="portfolio-overlay">
+               				 							<h4>Maldives Regional Airports</h4>
+               				 						</div>
+               				 				</div>
+               				 			</div>
+										<div class="iso-box graphic photoshop col-md-4 col-sm-6 col-xs-12">
+               				 				<div class="portfolio-thumb">
+               				 					<img src="images/sea.png" class="fluid-img" alt="portfolio img">
+               				 						<div class="portfolio-overlay">
+               				 							<h4>Seatracs building </h4>
+               				 						</div>
+               				 				</div>
+               				 			</div>
+										<div class="iso-box graphic photoshop col-md-4 col-sm-6 col-xs-12">
+               				 				<div class="portfolio-thumb">
+               				 					<img src="images/MMA.jpg" class="fluid-img" alt="portfolio img">
+               				 						<div class="portfolio-overlay">
+               				 							<h4>New MMA Building</h4>
+               				 						</div>
+               				 				</div>
+               				 			</div>
+										<div class="iso-box graphic photoshop col-md-4 col-sm-6 col-xs-12">
+               				 				<div class="portfolio-thumb">
+               				 					<img src="images/sto.jpg" class="fluid-img" alt="portfolio img">
+               				 						<div class="portfolio-overlay">
+               				 							<h4>New STO Building</h4>
+               				 						</div>
+               				 				</div>
+               				 			</div>
+               				 		</div>
+               				 	</div>
+
+							</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- end portfolio -->
+
+		<!-- start contact -->
+		<div id="contact">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-3 col-sm-4 wow fadeInLeft" data-wow-delay="0.6s">
+						<h2 class="second"><strong>Infotech</strong> Maldives Pte Ltd</h2>
+						<p class="posiion">We Provide I.T Solutions At Its Best</p>
+						<ul class="social-icon">
+							<li><a href="#" class="fa fa-facebook"></a></li>
+							<li><a href="#" class="fa fa-twitter"></a></li>
+							<li><a href="#" class="fa fa-instagram"></a></li>
+						</ul>
+					</div>
+					<div class="col-md-3 col-sm-4 wow fadeIn" data-wow-delay="0.9s">
+						<address>
+							<h3>Contact Us</h3>
+							<p><i class="smoothScroll"></i> 1st Floor ,Daylight Villa ,Dhidhi Goalhi ,Malé , Maldives</p>
+							<p><i class="fa fa-phone too-icon"></i>+9603318712</p>
+							<p><i class="fa fa-envelope-o too-icon"></i> admin@infotechmaldives.com</p>
+						</address>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- end contact -->
+		
+		<!-- start google map -->
+		<div class="googleMap">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3979.223167511509!2d73.50664551426283!3d4.176484147143913!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b3f7faca65925e5%3A0x448bf365253e37a2!2sInfotech+Maldives+Pte+Ltd!5e0!3m2!1sen!2smv!4v1543317377469" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+		</div>
+		
+		<!-- end google map -->
+
+		<!-- start footer -->
+		<footer>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-sm-7">
+						<p>Copyright &copy; 2018 Infotech Maldives Pte Ltd</p>
+					</div>
+					<div class="col-md-4 col-sm-5">
+						<ul class="social-icon">
+							<li><a href="#" class="fa fa-facebook"></a></li>
+							<li><a href="#" class="fa fa-twitter"></a></li>
+							<li><a href="#" class="fa fa-instagram"></a></li>
+							<li><a href="#" class="fa fa-pinterest"></a></li>
+							<li><a href="#" class="fa fa-google"></a></li>
+							<li><a href="#" class="fa fa-github"></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<!-- end footer -->
+</body>
+</html>
